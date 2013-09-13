@@ -1,0 +1,41 @@
+        {% extends 'base.html' %}
+        {% block content %}
+                <div id="main">
+{% for post in posts %}
+      	    <article class="post">
+
+      		    <div class="primary">
+
+                    <h2><a href="{%url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+
+                <ul>
+                    <div class="time">{{ post.created }}</div>
+                    <div class="body" style="width:520px; overflow:hidden; word-break:break-all">{{ post.text|linebreaks }}</div>
+                </ul>
+        
+                <p><a class="more" href="{%url 'post_detail' post.slug %}">Continue Reading &raquo;</a></p>
+                
+                </div>
+
+                <aside>
+
+            	    <p class="dateinfo">{{post.created_on.day}}<span>{{post.created_on.month}}</span></p>
+
+               	    <div class="post-meta">
+                  	    <h4>Post Info</h4>
+                     	<ul>
+                           <li class="user">{{post.author}}</li>
+                           <li class="time">{{post.created_on.time}}</li>
+                           <li class="comment">{{post.comment}}</li>
+
+                        </ul>
+					</div>
+                </aside>
+
+		    </article>
+        {% endfor %}
+
+        <!-- /main -->
+        </div>
+
+      {% endblock %}

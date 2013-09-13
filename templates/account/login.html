@@ -1,0 +1,19 @@
+        {% extends 'base.html' %}
+        {% block content %}
+        <div style="padding-top:225px; text-align:center;" id="login" class="animate form">
+            <form style="margin:0;" action="/account/login/" method="POST" autocomplete="on">{% csrf_token %} 
+                <h1>Log in</h1> 
+            {% if form.has_errors %}
+                <p>Username or password didn't work. 
+                    Please enter them again.</p>
+            {% endif %}
+
+                {{form.as_p}}
+                <p class="login button"> 
+                    <input value="Login" type="submit"> 
+				</p>
+
+				<p></p>
+            </form>
+        </div>
+        {% endblock%}

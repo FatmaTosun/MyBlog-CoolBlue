@@ -1,0 +1,14 @@
+  {% extends 'base.html' %}
+        {% block content %}
+        <div style="padding-top:225px; text-align:center;" id="login" class="animate form">
+            <form style="margin:0;" action="/post/add_post/" method="POST" autocomplete="on">{% csrf_token %} 
+                <h1>Add Post</h1> 
+                {{form.as_p}}
+                <p class="login button"> 
+                    <input value="Save" type="submit"> 
+				</p>
+
+				<p></p>
+            </form>
+        </div>
+        {% endblock%}

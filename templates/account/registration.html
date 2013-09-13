@@ -1,0 +1,13 @@
+	{% extends 'base.html' %}
+        {% block content %}
+	<div style="padding-top:225px; text-align:center;"id="registration" class="animate form">
+	<form style="margin:0;"action="/account/registration/" method="POST" autocomplete="on">{% csrf_token %} 				
+			<h1> Register </h1> 
+			   {{form.as_p}}
+				<p class="signin button"> 
+					<input value="Sign up" type="submit"> 
+				</p>
+					<p></p>
+            </form>
+	</div>						
+{% endblock %}

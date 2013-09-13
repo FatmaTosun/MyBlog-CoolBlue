@@ -1,0 +1,18 @@
+  {% extends 'base.html' %}
+{% block content %}
+<div style="padding-top:225px;;" id="post_detail" class="animate form">
+    <h2> {{ post.title }}</h2> <div style="width:718px; overflow:hidden; word-break:break-all">{{ post.text|linebreaksbr }}</div>
+    <h2> Comments </h2>
+    {% for comment in comments %}
+       <h2> {{ comment.name }}</h2>
+        <div style="width=500px;">{{ comment.text|linebreaks }}</div>
+	{% endfor %}
+     <h2> Add Comment</h2> 
+	<!-- Comment form  -->
+	<form method="post" action="#">
+		{% csrf_token %}
+        {{ form.as_p }}
+ 		<input type="submit" value="Submit">
+	</form>
+</div>
+{% endblock%}
